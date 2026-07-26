@@ -14,6 +14,13 @@
     <script>
         function calcular() {
             var tpais = window.document.querySelector('input#ipais')
-            var 
+            var res = window.document.querySelector('div#res')
+            var pais = tpais.value
+
+            if (pais == 'brasil') { 
+            res.innerHTML += '<p>Você é <strong>Brasileiro</strong></p>'
+            } else {
+            res.innerHTML = '<p>Você é <strong>Estrangeiro</strong></p>'
+            }
         }
     </script>
