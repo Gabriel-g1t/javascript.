@@ -1,26 +1,28 @@
-function adicionar() {
-    let num = window.document.getElementById('inum')
-    let li = document.getElementById('ilista')
+let num = window.document.getElementById('inum')
+let li = document.getElementById('ilista')
+let res = document.querySelector('div#res')
+let valores = []
 
-    num = Number(num.value)
-    if (num <= 0 || num > 100) {
-        alert('[ERRO] Insira um número válido')
+function isNumero(n) {
+    if (Number(n) >= 1 && Number(n) <= 100) {
+        return true
     } else {
-            let item = document.createElement('option')
-            item.text = `Valor ${num} adicionado.`
-            li.appendChild(item)
+        return false
     }
 }
 
-    function verificar() {
-    let res = document.querySelector('div#res')
-    let lista = document.getElementById('ilista')
-    let maior = lista.options[0]
+function inLista(n, lista) {
+    if (lista.indexOf(Number(n)) != -1) {
+        return true
+    } else {
+        return false
+    }
+}
 
-
-    if (lista.options.length > 0) {
-        res.innerHTML = `<p> Ao todo, temos ${lista.options.length} números cadastrados. </p>`
-    } for (let x = 0; x < lista.options.length; x++) {
-        res.innerHTML += `O maior valor informado é ${x.options.length}`
+function adicionar() {
+    if (isNumero(num.value) && !inLista(num.value, valores)) {
+        window.alert('Tudo ok!')
+    } else {
+        alert('[ERRO] Insira um número válido')
     }
 }
